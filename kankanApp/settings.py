@@ -73,10 +73,16 @@ WSGI_APPLICATION = 'kankanApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+import pymysql
+pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'USER': 'kan',
+        'PASSWORD': 'passpass',
+        'HOST': '172.18.0.20',
+        'PORT': '3306',
     }
 }
 
