@@ -1,0 +1,10 @@
+<h1>sample管理</h1>
+    {% if latest_blog_list %}
+    <ul>
+    {% for blog in latest_blog_list %}
+        <li><a href="/sample_admin/{{ blog.id }}/">{{ blog.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No sample are available.</p>
+{% endif %}
