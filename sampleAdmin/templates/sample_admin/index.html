@@ -1,8 +1,9 @@
 <h1>sample管理</h1>
+<p><a href="{% url 'sampleAdmin:add' %}">追加</a></p>
     {% if latest_blog_list %}
     <ul>
     {% for blog in latest_blog_list %}
-        <li><a href="/sample_admin/{{ blog.id }}/">{{ blog.title }}</a></li>
+        <li><a href="{% url 'sampleAdmin:edit' blog.pk %}">{{ blog.title }}</a> <a href="{% url 'sampleAdmin:delete' blog.pk %}">削除</a></li>
     {% endfor %}
     </ul>
 {% else %}

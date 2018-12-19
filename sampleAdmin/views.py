@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 from sample.models import Blogs
 from .forms import BlogForm
 
@@ -10,33 +11,45 @@ def index(request):
     return render(request, 'sample_admin/index.html', context)
 
 
-def edit(request, blog_id):
-    blog = get_object_or_404(Blogs, pk=blog_id)
-    message = ''
-    if request.method == 'POST':
+# 追加画面
+def add(request):
+    if request.method == "POST":
         form = BlogForm(request.POST)
         if form.is_valid():
-            message = 'success'
-            blog.content = form.cleaned_data['content']
+            blog = form.save(commit=False)
+            blog.created_at = timezone.now()
+            blog.updated_at = timezone.now()
             blog.save()
-        #     return render(request, 'sample_admin/edit.html', {'blog': blog})
-        else:
-            message = 'failed'
+            return redirect('sampleAdmin:index')
     else:
-        form = BlogForm({'blog', blog.content})
-        #     # GETリクエスト（初期表示）時はDBに保存されているデータをFormに結びつける
-        #     form = BlogForm()
+        form = BlogForm()
+    return render(request, 'sample_admin/add.html', {'form': form})
+
+
+# 編集画面
+def edit(request, blog_id):
+    blog = get_object_or_404(Blogs, pk=blog_id)
+    if request.method == "POST":
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.created_at = timezone.now()
+            blog.updated_at = timezone.now()
+            blog.save()
+            return redirect('sampleAdmin:index')
+    else:
+        form = BlogForm(instance=blog)
 
     return render(
         request,
         'sample_admin/edit.html',
-        {'form': form, 'message': message}
+        {'form': form}
     )
 
 
-def update(request, blog_id):
-    try:
-        blog = get_object_or_404(Blogs, pk=blog_id)
-    except Blogs.DoesNotExist:
-        raise Http404("Blog does not exist")
-    return render(request, 'sample/detail.html', {'blog': blog})
+# 削除
+def delete(request, blog_id):
+    blog = Blogs.objects.get(pk=blog_id)
+
+    blog.delete()
+    return redirect('sampleAdmin:index')

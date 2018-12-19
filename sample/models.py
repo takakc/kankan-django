@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -19,3 +20,6 @@ class Blogs(models.Model):
         default='current_date',
         verbose_name='更新日'
     )
+
+    def __str__(self):
+        return self.title
