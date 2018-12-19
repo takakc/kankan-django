@@ -5,6 +5,7 @@ from sample.models import Blogs
 from .forms import BlogForm
 
 
+# 一覧画面
 def index(request):
     latest_blog_list = Blogs.objects.order_by('-updated_at')[:5]
     context = {'latest_blog_list': latest_blog_list}

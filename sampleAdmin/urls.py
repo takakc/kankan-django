@@ -4,6 +4,7 @@ from . import views
 
 app_name = 'sampleAdmin'
 urlpatterns = [
+    # 一覧画面
     path('', views.index, name='index'),
 
     # サンプルブログ　追加画面
