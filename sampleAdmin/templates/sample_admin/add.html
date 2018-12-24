@@ -2,16 +2,14 @@
 
 {% block container %}
 
-    <h4 class="page_title">編集画面 - sample管理</h4>
+    <h4 class="page_title">追加画面 - sample管理</h4>
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-    <form method="post">
-
+    <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p  }}
+        {{ form.as_p }}
 
-    <input type="submit" value="編集">
+    <input type="submit" value="追加">
     </form>
 
 {% endblock %}

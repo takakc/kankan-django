@@ -1,9 +1,29 @@
-{% if latest_blog_list %}
-    <ul>
-    {% for blog in latest_blog_list %}
-        <li><a href="/sample/{{ blog.id }}/">{{ blog.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No sample are available.</p>
-{% endif %}
+{% extends 'sample_admin/base_generic.html' %}
+
+{% block container %}
+
+    <h4 class="page_title">sample一覧</h4>
+    {% if latest_blog_list %}
+        <table>
+            <thead>
+                <tr>
+                    <th>タイトル</th>
+                    <th>作成日</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for blog in latest_blog_list %}
+                    <tr>
+                        <td><a href="{% url 'sample:detail' blog.id %}">{{ blog.title }}</a></td>
+                        <td>{{ blog.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>No sample are available.</p>
+    {% endif %}
+
+{% endblock %}
