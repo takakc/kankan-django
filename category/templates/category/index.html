@@ -1,0 +1,31 @@
+{% extends 'sample_admin/base_generic.html' %}
+
+{% block container %}
+
+    <h4 class="page_title">カテゴリー管理</h4>
+    <p><a class="waves-effect waves-light btn" href="{% url 'category:add' %}">追加</a></p>
+    {% if latest_category_list %}
+        <table>
+            <thead>
+                <tr>
+                    <th>操作</th>
+                    <th>カテゴリー名</th>
+                    <th>状態</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for category in latest_category_list %}
+                    <tr>
+                        <td><a class="waves-effect waves-light red accent-3 btn-small" href="{% url 'category:delete' category.pk %}">物理削除</a></td>
+                        <td><a href="{% url 'category:edit' category.pk %}">{{ category.name }}</a></td>
+                        <td>{% if category.is_deleted == 1 %}非表示{% else %}表示{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>カテゴリーがありません。上部の追加ボタンからカテゴリーを作成してください。</p>
+    {% endif %}
+
+{% endblock %}
