@@ -1,4 +1,4 @@
-{% extends 'sample_admin/base_generic.html' %}
+{% extends 'layouts/base_generic.html' %}
 
 {% block container %}
 
@@ -11,7 +11,8 @@
         {% csrf_token %}
         {{ form.as_p  }}
 
-    <input type="submit" value="編集">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal-dialog">編集</a>
+        {% include 'dialogs/edit.html' %}
     </form>
 
 {% endblock %}

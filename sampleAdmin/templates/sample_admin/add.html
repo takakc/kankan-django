@@ -1,4 +1,4 @@
-{% extends 'sample_admin/base_generic.html' %}
+{% extends 'layouts/base_generic.html' %}
 
 {% block container %}
 
@@ -9,7 +9,8 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-    <input class="light-blue darken-2 btn-small" type="submit" value="追加">
-    </form>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal-dialog">登録</a>
+    {% include 'dialogs/add.html' %}
+</form>
 
 {% endblock %}
