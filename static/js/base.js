@@ -3,8 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems, {});
 });
 
+// モーダルウィンドウ※確認画面用
 $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
-    $('.modal-trigger').leanModal();
+    // $('.modal-trigger').leanModal();
+});
+
+// 管理画面で削除id取得
+$(document).on('click', '.delete-href', function(){
+    deleteHref = "/sample_admin/" + $(this).data('id') + "/delete/";
+    $("#delete-href").attr("href", deleteHref)
 });

@@ -2,16 +2,38 @@
 	"python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
-    "editor.rulers": [
-        80,
-        100
-    ],
     "indentRainbow.indentSetter": {
-        "php": {
+        "python": {
             "tabSize": 4,
             "insertSpaces": true
-        }
+        },
+        "django-html": {
+            "tabSize": 2,
+            "insertSpaces": true
+        },
+        "json": {
+            "tabSize": 2,
+            "insertSpaces": true
+        },
     },
-    "editor.tabSize": 4,
+    "[python]": {
+        "editor.rulers": [
+            80,
+            100
+        ],
+        "editor.tabSize": 4,
+    },
+    "[django-html]": {
+        "editor.rulers": [
+            80,
+            100
+        ],
+        "editor.tabSize": 2,
+    },
+    "files.associations": {
+        "**/templates/*.html": "django-html",
+        "**/templates/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
     "editor.insertSpaces": true,
 }

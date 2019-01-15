@@ -2,17 +2,17 @@
 
 {% block container %}
 
-    <h4 class="page_title">編集画面 - sample管理</h4>
+  <h4 class="page_title">編集画面 - sample管理</h4>
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <form method="post">
+  <form method="post">
 
-        {% csrf_token %}
-        {{ form.as_p  }}
+    {% csrf_token %}
+    {{ form.as_p }}
 
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal-dialog">編集</a>
-        {% include 'dialogs/edit.html' %}
-    </form>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal-dialog">編集</a>
+    {% include 'dialogs/edit.html' %}
+  </form>
 
 {% endblock %}

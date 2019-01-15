@@ -3,69 +3,69 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>サンプルaa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/base.css' %}" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>サンプル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/base.css' %}" />
 </head>
 <header>
-    <nav class="teal darken-2">
-        <div class="nav-wrapper container teal darken-2">
-            <a href="#" class="brand-logo">サンプルブログ</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/sample/">サンプルブログ</a></li>
-                <li><a href="/sample_admin/">ブログ管理</a></li>
-                <li><a href="/category/">カテゴリー管理</a></li>
-            </ul>
-        </div>
-    </nav>
-    <ul class="sidenav" id="slide-out">
+  <nav class="teal darken-2">
+    <div class="nav-wrapper container teal darken-2">
+      <a href="#" class="brand-logo">サンプルブログ</a>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/sample/">サンプルブログ</a></li>
         <li><a href="/sample_admin/">ブログ管理</a></li>
         <li><a href="/category/">カテゴリー管理</a></li>
-    </ul>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="slide-out">
+    <li><a href="/sample/">サンプルブログ</a></li>
+    <li><a href="/sample_admin/">ブログ管理</a></li>
+    <li><a href="/category/">カテゴリー管理</a></li>
+  </ul>
 </header>
 
 <body>
-    <div class="container">
-        {% block container %}
-        {% endblock %}
-    </div>
+  <div class="container">
+    {% block container %}
+    {% endblock %}
+  </div>
 </body>
 
 <footer class="page-footer indigo darken-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Django sample</h5>
+        <p class="grey-text text-lighten-4">
+          This is sample site.<br>
+          It may be strange because of the site I created for the first time by Django.<br>
+          I hope it will be helpful for other troubled people.<br>
+        </p>
+      </div>
+      <div class="col l6 s12">
+        <h5 class="white-text">Django サンプル</h5>
+        <p class="grey-text text-lighten-4">
+          これはサンプルサイトです。<br>
+          初めてDjangoで作ったため、変なところがあるかもしれないです。<br>
+          他に困っている人の手助けになればと願っています。<br>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
     <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Django sample</h5>
-                <p class="grey-text text-lighten-4">
-                    This is sample site.<br>
-                    It may be strange because of the site I created for the first time by Django.<br>
-                    I hope it will be helpful for other troubled people.<br>
-                </p>
-            </div>
-            <div class="col l6 s12">
-                <h5 class="white-text">Django サンプル</h5>
-                <p class="grey-text text-lighten-4">
-                    これはサンプルサイトです。<br>
-                    初めてDjangoで作ったため、変なところがあるかもしれないです。<br>
-                    他に困っている人の手助けになればと願っています。<br>
-                </p>
-            </div>
-        </div>
+      git hub : <a href="https://github.com/takakc/kankan-django.git" target="_blank">https://github.com/takakc/kankan-django.git</a><br>
+      Made by kan
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            git hub : <a href="https://github.com/takakc/kankan-django.git" target="_blank">https://github.com/takakc/kankan-django.git</a><br>
-            Made by kan
-        </div>
-    </div>
+  </div>
 </footer>
 <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

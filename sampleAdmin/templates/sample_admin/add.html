@@ -2,15 +2,16 @@
 
 {% block container %}
 
-    <h4 class="page_title">追加画面 - sample管理</h4>
+  <h4 class="page_title">追加画面 - sample管理</h4>
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
 
     <a class="waves-effect waves-light btn modal-trigger" href="#modal-dialog">登録</a>
     {% include 'dialogs/add.html' %}
-</form>
+  </form>
 
 {% endblock %}

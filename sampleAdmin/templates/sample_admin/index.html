@@ -2,32 +2,38 @@
 
 {% block container %}
 
-    <h4 class="page_title">sample管理</h4>
-    <p><a class="waves-effect waves-light btn" href="{% url 'sampleAdmin:add' %}">追加</a></p>
-    {% if latest_blog_list %}
-        <table>
-            <thead>
-                <tr>
-                    <th>操作</th>
-                    <th>タイトル</th>
-                    <th>作成日</th>
-                    <th>状態</th>
-                </tr>
-            </thead>
+  <h4 class="page_title">sample管理</h4>
+  <p><a class="waves-effect waves-light btn" href="{% url 'sampleAdmin:add' %}">追加</a></p>
+  {% if latest_blog_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>操作</th>
+          <th>タイトル</th>
+          <th>作成日</th>
+          <th>状態</th>
+        </tr>
+      </thead>
 
-            <tbody>
-                {% for blog in latest_blog_list %}
-                    <tr>
-                        <td><a class="waves-effect waves-light red accent-3 btn-small" href="{% url 'sampleAdmin:delete' blog.pk %}">物理削除</a></td>
-                        <td><a href="{% url 'sampleAdmin:edit' blog.pk %}">{{ blog.title }}</a></td>
-                        <td>{{ blog.created_at }}</td>
-                        <td>{% if blog.is_deleted == 1 %}非表示{% else %}表示{% endif %}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>ブログがありません。上部の追加ボタンからブログを作成してください。</p>
-    {% endif %}
+      <tbody>
+        {% for blog in latest_blog_list %}
+        <tr>
+          <td>
+            <a  class="waves-effect waves-light red accent-3 btn-small modal-trigger delete-href"
+                data-id="{{ blog.pk }}"
+                href="#modal-dialog">物理削除
+            </a>
+          </td>
+          <td><a href="{% url 'sampleAdmin:edit' blog.pk %}">{{ blog.title }}</a></td>
+          <td>{{ blog.created_at }}</td>
+          <td>{% if blog.is_deleted == 1 %}非表示{% else %}表示{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>ブログがありません。上部の追加ボタンからブログを作成してください。</p>
+  {% endif %}
 
+  {% include 'dialogs/delete.html' %}
 {% endblock %}
