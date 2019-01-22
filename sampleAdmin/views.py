@@ -15,11 +15,9 @@ def index(request):
 # 追加画面
 def add(request):
     if request.method == "POST":
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             blog = form.save(commit=False)
-            blog.created_at = timezone.now()
-            blog.updated_at = timezone.now()
             blog.save()
             return redirect('sampleAdmin:index')
     else:
@@ -31,11 +29,9 @@ def add(request):
 def edit(request, blog_id):
     blog = get_object_or_404(Blogs, pk=blog_id)
     if request.method == "POST":
-        form = BlogForm(request.POST, instance=blog)
+        form = BlogForm(request.POST, request.FILES, instance=blog)
         if form.is_valid():
             blog = form.save(commit=False)
-            blog.created_at = timezone.now()
-            blog.updated_at = timezone.now()
             blog.save()
             return redirect('sampleAdmin:index')
     else:
