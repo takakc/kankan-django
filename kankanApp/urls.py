@@ -23,7 +23,7 @@ urlpatterns = [
     path('login/', TemplateView.as_view(template_name='login/login.html')),
     path('account/', TemplateView.as_view(template_name='account/account.html')),
     path('social/', include('social_django.urls', namespace='social')),
-    path('sample/', include('sample.urls')),
+    path('', include('sample.urls')),
     path('sample_admin/', include('sampleAdmin.urls')),
     path('category/', include('category.urls')),
     path('admin/', admin.site.urls),

@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import pymysql
 
-import sys
+import io, sys
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
@@ -102,8 +102,8 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/sample/'
 # 認証エラー時のリダイレクト先
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/login-error/'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'hogehoge'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'mogemoge'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'hogehoge'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'mogemoge'
 
 WSGI_APPLICATION = 'kankanApp.wsgi.application'
 

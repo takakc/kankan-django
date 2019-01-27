@@ -4,6 +4,7 @@
   </head>
   <body>
     <h1>Django Google Auth</h1>
+    <p>OAuthのログイン機能を利用するにはsetting.pyの「SOCIAL_AUTH_GOOGLE_OAUTH2_KEY」「SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET」の設定が必要</p>
     <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
   </body>
 </html>
