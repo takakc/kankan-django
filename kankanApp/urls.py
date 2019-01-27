@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('login/', TemplateView.as_view(template_name='login/login.html')),
+    path('account/', TemplateView.as_view(template_name='account/account.html')),
+    path('social/', include('social_django.urls', namespace='social')),
     path('sample/', include('sample.urls')),
     path('sample_admin/', include('sampleAdmin.urls')),
     path('category/', include('category.urls')),
